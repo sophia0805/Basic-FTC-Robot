@@ -1,15 +1,13 @@
 package org.firstinspires.ftc.teamcode.teleop;
-import org.firstinspires.ftc.teamcode.robot.components.ArmServo;
-import org.firstinspires.ftc.teamcode.robot.components.TeleOpDrive;
-import org.firstinspires.ftc.teamcode.robot.components.TeleOpDrive;
-
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+
+import org.firstinspires.ftc.teamcode.robot.components.Drive;
 
 @TeleOp (name = "Driver Controlled")
 public class DriverControlled extends OpMode {
     //private ArmServo armServo;
-    private TeleOpDrive driveTrain;
+    private Drive driveTrain;
 
     //Arm Servo initial booleans
     //private boolean armState = false; //true = up, false = down
@@ -18,7 +16,7 @@ public class DriverControlled extends OpMode {
     @Override
     public void init() {
         //armServo = new ArmServo(hardwareMap);
-        driveTrain = new TeleOpDrive(hardwareMap);
+        driveTrain = new Drive(hardwareMap);
 
     }
 
@@ -36,6 +34,6 @@ public class DriverControlled extends OpMode {
         lastButtonState = gamepad1.a;
         */
         //DRIVETRAIN
-        driveTrain.drive(gamepad1.left_stick_y);
+        driveTrain.drive(gamepad1.right_stick_y, gamepad1.left_stick_y);
     }
 }
